@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from "react";
+import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Container,CssBaseline } from "@mui/material";
 
-function App() {
+import { ThemeProvider } from "@mui/material/styles";
+import "./App.css";
+
+
+const App = () => {
+
+ const user = useSelector((state)=>state.user);
+ const [dark,setDark] = useState(JSON.parse(localStorage.getItem("dark")));
+ useEffect(()=>{
+  localStorage.setItem("dark",JSON.stringify(dark));
+ },[dark]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+   
+      <ThemeProvider >
+      <CssBaseline enableColorScheme/>
+       
+          <Container sx={{minHeight:"100vh"}} maxWidth={false} disableGutters >
+           
+            <Routes>
+              <Route path="/" element={user?<Navigate to="/posts?page=1" />:<Navigate to="/signin" />} />
+           
+            </Routes>
+            </Container>
+       
+      </ThemeProvider>
+
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
+
+
+
+
