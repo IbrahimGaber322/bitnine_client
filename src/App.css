@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monda:wght@400;700&display=swap');
+
+.slide {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .slide::before {
+    content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 55px;
+  background-color: rgba(0,0,0,.1);
+  transform: translate(0%, -100%) skew(0deg);
+  transition: 1s;
+  }
+  
+  .slide:hover {
+    color: gold;
+  }
+  
+  .slide:hover::before {
+    transform: translate(0%, 0) skew(0deg);
+  }
+
+
+  /* Set the container's position to relative to position the overlay absolutely within it */
+.image-container {
+  position: relative;
+  display: inline-block;
+  transition: box-shadow .6s ease;
+}
+
+/* Hide the overlay by default and center it */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 10px;
+  border-radius: 5px;
+  color: black;
+  /* Set initial size to zero */
+  scale: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: scale 0.6s, opacity 0.6s ease;
+  padding: 3rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.image{
+  visibility: visible;
+  transition: visibility 0.1s ease;
+}
+.image-container:hover .image {
+  visibility: hidden;
+}
+
+/* Show the overlay on hover and expand it to cover the image */
+.image-container:hover .overlay {
+  opacity: 1;
+  scale: 1;
+}
+
+.image-container:hover {
+ 
+  box-shadow: 0 0 3px blue; 
+}
+
+.card {
+  width: 100%;
+  height: 100px;
+  perspective: 800px; /* Adjust the perspective for better 3D effect */
+  position: relative;
+}
+
+.front, .back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden; /* Hides the back of the card until it rotates */
+  transition: transform 0.6s ease; /* Smooth transition on transform property */
+}
+
+.front {
+  /* Front styles */
+  background-color: #ffffff00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border:2px solid rgb(0, 130, 203);
+  border-radius: 8px;
+  color: rgb(0, 130, 203);
+}
+
+.back {
+  /* Back styles */
+  background-color: rgb(0, 130, 203);
+  border:2px solid rgb(0, 130, 203);
+  border-radius: 8px;
+  color: white;
+  transform: rotateY(180deg); /* Start with the back of the card facing the front */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card:hover .front {
+  transform: rotateY(180deg); /* Flips the card to show the back content on hover */
+}
+
+.card:hover .back {
+  transform: rotateY(0); /* Flips the card to show the front content on hover */
+}
