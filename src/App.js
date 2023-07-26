@@ -8,6 +8,7 @@ import "./App.css";
 import Header from "./components/header/Header";
 import Home from "./pages/Home";
 import Footer from "./components/footer/Footer";
+import ScrollTop from "./components/ScrollTop";
 
 const App = () => {
 
@@ -28,9 +29,10 @@ const App = () => {
            
             </Routes>
             <Footer />
+            <ScrollTop />
             </Container>
+          
        
-      
       </ThemeProvider>
     </BrowserRouter>
   );
