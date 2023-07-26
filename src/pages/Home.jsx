@@ -27,7 +27,7 @@ const Home = () => {
 
             md: "25px",
           },
-          pb: "80px",
+          py: "80px",
         }}
       >
         <Grid

@@ -1,10 +1,10 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Fade from '@mui/material/Fade';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { Box, IconButton } from '@mui/material';
+import * as React from "react";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import Fade from "@mui/material/Fade";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { Box, IconButton } from "@mui/material";
 
 export default function LanguageMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -17,11 +17,16 @@ export default function LanguageMenu() {
   };
 
   return (
-    <Box >
+    <Box>
       <IconButton
         onClick={handleClick}
-        sx={{ bgcolor: "rgb(243, 246, 251)", borderRadius: 2, fontSize: "16px", ...(open && { border: "2px solid #022EA9" }) }}
-        color='info'
+        sx={{
+          bgcolor: "rgb(243, 246, 251)",
+          borderRadius: 2,
+          fontSize: "16px",
+          ...(open && { border: "2px solid #022EA9" }),
+        }}
+        color="info"
       >
         Select Language
         <KeyboardArrowDownIcon />
@@ -31,11 +36,9 @@ export default function LanguageMenu() {
         open={open}
         onClose={handleClose}
         TransitionComponent={Fade}
-       
       >
         <MenuItem onClick={handleClose}>English</MenuItem>
         <MenuItem onClick={handleClose}>한국어</MenuItem>
-        
       </Menu>
     </Box>
   );

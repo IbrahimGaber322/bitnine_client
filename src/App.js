@@ -7,7 +7,7 @@ import theme from "./theme/theme";
 import "./App.css";
 import Header from "./components/header/Header";
 import Home from "./pages/Home";
-
+import Footer from "./components/footer/Footer";
 
 const App = () => {
 
@@ -27,6 +27,7 @@ const App = () => {
               <Route path="/" element={active?<Home />:<Home />} />
            
             </Routes>
+            <Footer />
             </Container>
        
       

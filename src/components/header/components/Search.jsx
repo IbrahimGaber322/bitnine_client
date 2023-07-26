@@ -29,8 +29,16 @@ const Search = () => {
 
   return (
     <ClickAwayListener onClickAway={handleExpand2}>
-      <Box display="flex"  borderRadius={2} overflow={"hidden"} justifyContent="center">
-        <Button onClick={handleExpand} sx={{display:expand?"none":"inherit"}} >
+      <Box
+        display="flex"
+        borderRadius={2}
+        overflow={"hidden"}
+        justifyContent="center"
+      >
+        <Button
+          onClick={handleExpand}
+          sx={{ display: expand ? "none" : "inherit" }}
+        >
           <SearchIcon color="info" fontSize="medium" />
         </Button>
         {expand && (
@@ -45,7 +53,7 @@ const Search = () => {
               size="small"
               placeholder="SEARCH"
               color="info"
-              sx={{bgcolor: "#696969", input:{color:"white"}}}             
+              sx={{ bgcolor: "#696969", input: { color: "white" } }}
             />
           </Grow>
         )}
