@@ -10,6 +10,7 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import BitnineLogo from "../../../images/b_logo.png";
+import MenuAccordion from "./MenuAccordion";
 
 const pages = [
   "PRODUCTS",
@@ -21,7 +22,9 @@ const pages = [
   "IR",
 ];
 
+
 function ResponsiveAppBar() {
+ 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -66,15 +69,15 @@ function ResponsiveAppBar() {
                 display: { xs: "block", lg: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              <MenuAccordion handleCloseNavMenu={handleCloseNavMenu} />
+              <Button size="small" className="slide" sx={{ my:"auto", height:"fit-content", ml:1 }} variant="contained">
+              TRY FREE
+            </Button>
             </Menu>
           </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", lg: "flex" } }}>
+          
             {pages.map((page) => (
               <Button
                 key={page}

@@ -165,3 +165,19 @@
 .nav-item:hover{
   color: #f8bf14 !important;
 }
+
+.nav-item-white-container{
+  background-color: #313030 !important;
+}
+
+.nav-item-white-container:hover{
+  background-color: rgb(20, 20, 20) !important;
+}
+
+.nav-item-white{
+  font-size: 13px !important;
+  color: white !important;
+  font-weight: 400;
+}
+
+
