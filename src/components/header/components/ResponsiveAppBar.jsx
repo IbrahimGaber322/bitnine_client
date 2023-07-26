@@ -12,16 +12,8 @@ import MenuItem from "@mui/material/MenuItem";
 import BitnineLogo from "../../../images/b_logo.png";
 import MenuAccordion from "./MenuAccordion";
 import LanguageMenu from "./LanguageMenu";
+import MenuBar from "./MenuBar";
 
-const pages = [
-  "PRODUCTS",
-  "USE CASES",
-  "SERVICES",
-  "RESOURCES",
-  "BLOG",
-  "COMPANY",
-  "IR",
-];
 
 
 function ResponsiveAppBar() {
@@ -86,17 +78,8 @@ function ResponsiveAppBar() {
           </Box>
          
           <Box sx={{ flexGrow: -1, display: { xs: "none", lg: "flex" } }}>
-          
-            {pages.map((page) => (
-              <Button
-                key={page}
-                className="nav-item"
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))}
+          <MenuBar />
+           
             <Button size="small" className="slide" sx={{ my:"auto", height:"fit-content" }} variant="contained">
               TRY FREE
             </Button>

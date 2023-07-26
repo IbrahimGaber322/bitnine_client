@@ -181,3 +181,85 @@
 }
 
 
+
+.TopMenuBar {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  width: "fit-content";
+  margin: 0;
+  padding: 0;
+}
+
+.TopMenuBar>ul {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  
+}
+
+.TopMenuBar>ul, .dropdown-menu>ul, .sub-dropdown-menu>ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.TopMenuBar>li {
+  display: inline;
+}
+.TopMenuBar a{
+  color: black;
+  text-decoration: none;
+  padding: 20px;
+  display: block
+}
+
+.dropdown-menu a, .sub-dropdown-menu a{
+  color: white;
+  text-decoration: none;
+  padding: 20px;
+  display: block
+}
+
+/* Applys to all links under class TopMenuBar on hover */
+.TopMenuBar a:hover {
+  color: gold;
+}
+
+
+.dropdown-menu, .sub-dropdown-menu{
+  display: none;
+  background-color: rgba(0, 0, 0, 0.762);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  position: absolute;
+  z-index: 1;
+  
+}
+
+/* Applys to all links under class TopMenuBar */
+.dropdown-menu a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown:hover .dropdown-menu{
+  display: block;
+}
+
+.sub-dropdown:hover .sub-dropdown-menu{
+  display: table;
+}
+
+.sub-dropdown{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.sub-dropdown-menu{
+  left: 100%;
+  top: 0;
+}
+
