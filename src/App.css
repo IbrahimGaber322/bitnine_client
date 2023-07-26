@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Monda:wght@400;700&display=swap');
 
+/* Home Styling */
 .slide {
     position: relative;
     overflow: hidden;
@@ -121,4 +122,46 @@
 
 .card:hover .back {
   transform: rotateY(0); /* Flips the card to show the front content on hover */
+}
+
+/* Header Styling */
+
+/* Assuming you already have styles for your Box and GitHubIcon components */
+.icon-box {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.icon-box:hover .MuiSvgIcon-root {
+  color: white !important;
+}
+
+.icon-box:hover .medium {
+  fill: white !important;
+}
+
+.curtain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color:  var(--curtain-color);
+  z-index: -1;
+  transition: height 0.5s ease; /* You can adjust the transition duration as needed */
+}
+
+.icon-box:hover .curtain {
+  height: 100%;
+}
+
+.nav-item{
+  font-size: 16px !important;
+  color: black !important;
+  font-weight: 400;
+}
+
+.nav-item:hover{
+  color: #f8bf14 !important;
 }

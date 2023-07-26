@@ -11,6 +11,9 @@ const theme = createTheme({
     secondary: {
       main: '#f8bf14',
     },
+    info: {
+      main: '#666666',
+    },
   },
   props: {
     MuiAppBar: {

@@ -5,7 +5,7 @@ import { Container,CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme/theme";
 import "./App.css";
-
+import Header from "./components/header/Header";
 import Home from "./pages/Home";
 
 
@@ -22,7 +22,7 @@ const App = () => {
       <CssBaseline enableColorScheme/>
        
           <Container sx={{minHeight:"100vh"}} maxWidth={false} disableGutters >
-           
+            <Header />
             <Routes>
               <Route path="/" element={active?<Home />:<Home />} />
            
