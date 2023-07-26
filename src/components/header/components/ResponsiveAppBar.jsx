@@ -11,6 +11,7 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import BitnineLogo from "../../../images/b_logo.png";
 import MenuAccordion from "./MenuAccordion";
+import LanguageMenu from "./LanguageMenu";
 
 const pages = [
   "PRODUCTS",
@@ -39,18 +40,26 @@ function ResponsiveAppBar() {
     <AppBar color="transparent" elevation={0} position="static">
       <Container maxWidth={false} disableGutters>
         <Toolbar disableGutters>
-          <Box flexGrow={100}>
-            <Box component={"img"} src={BitnineLogo} width={"232.5px"} height={"60px"} />
+          <Box flexGrow={1} ml={2}>
+            <Box component={"img"} src={BitnineLogo} sx={{width:{xs:"96.88px",sm:"193.75px",lg:"232.5px"}, height:"auto"}} />
           </Box>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", lg: "none" } }}>
+          <Box sx={{flexGrow:1, display: {xs:"flex", lg:"none"}}}>
+               <LanguageMenu />
+          </Box>
+
+
+          <Box sx={{ flexGrow: -1, display: { xs: "flex", lg: "none" } }}>
+          <Box sx={{width:{xs:"96.88px",sm:"193.75px",lg:"232.5px"}, height:"auto", display:"flex", justifyContent:"end"}}>
             <IconButton
               size="large"
               onClick={handleOpenNavMenu}
               color="inherit"
+              sx={{":hover":{color:"gold"}}}
             >
               <MenuIcon />
             </IconButton>
+            </Box>
             <Menu
               anchorEl={anchorElNav}
               anchorOrigin={{
@@ -75,8 +84,8 @@ function ResponsiveAppBar() {
             </Button>
             </Menu>
           </Box>
-
-          <Box sx={{ flexGrow: 1, display: { xs: "none", lg: "flex" } }}>
+         
+          <Box sx={{ flexGrow: -1, display: { xs: "none", lg: "flex" } }}>
           
             {pages.map((page) => (
               <Button

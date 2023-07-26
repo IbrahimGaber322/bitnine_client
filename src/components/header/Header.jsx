@@ -21,6 +21,7 @@ const Header = () => {
         display={"flex"}
         mt={"5px"}
         justifyContent={"space-between"}
+        sx={{display:{xs:"none", lg:"flex"}}}
       >
         <Box ml={10}>
           <LanguageMenu />
@@ -28,7 +29,7 @@ const Header = () => {
 
         <Box display={"flex"}>
           <Box display={"flex"}>
-            <Box sx={{display:{xs:"none", lg:"inline"}}}>
+            <Box >
               <Search />
             </Box>
             <Box>
