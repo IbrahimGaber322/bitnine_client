@@ -25,6 +25,7 @@ export default function LanguageMenu() {
           borderRadius: 2,
           fontSize: "16px",
           ...(open && { border: "2px solid #022EA9" }),
+          ":hover":{color:"inherit", bgcolor:"rgb(243, 246, 251)"}
         }}
         color="info"
       >
