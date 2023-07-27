@@ -38,8 +38,8 @@ export default function LanguageMenu({ setKor }) {
         onClose={handleClose}
         TransitionComponent={Fade}
       >
-        <MenuItem onClick={() => handleClose(false)}>English</MenuItem>
-        <MenuItem onClick={() => handleClose(true)}>한국어</MenuItem>
+        <MenuItem onTouchStart={() => handleClose(false)} onClick={() => handleClose(false)}>English</MenuItem>
+        <MenuItem onTouchStart={() => handleClose(true)} onClick={() => handleClose(true)}>한국어</MenuItem>
       </Menu>
     </Box>
   );
