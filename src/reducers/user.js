@@ -1,23 +1,17 @@
 import { GETUSER, SIGNOUT } from "../constants/actionTypes";
 
-const initialState = {
-  user: null,
-};
 
-const userReducer = (state = initialState, action) => {
+
+const userReducer = (user = null, action) => {
   switch (action.type) {
     case GETUSER:
-      return {
-        ...state,
-        user: action.payload,
-      };
+      user=action?.payload;
+      return user
     case SIGNOUT:
-      return {
-        ...state,
-        user: null,
-      };
+      user=null;
+      return user;
     default:
-      return state;
+      return user;
   }
 };
 

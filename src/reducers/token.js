@@ -9,7 +9,7 @@ const tokenReducer = (token=JSON.parse(localStorage.getItem("token")) ,action) =
         case RESETPASSWORD:
         case CONFIRM:
             localStorage.setItem("token",JSON.stringify(action?.payload));
-        return token=JSON.parse(localStorage.getItem("user"));
+        return token=JSON.parse(localStorage.getItem("token"));
         case SIGNOUT:
             localStorage.removeItem("token");
         return token=JSON.parse(localStorage.getItem("token"));
