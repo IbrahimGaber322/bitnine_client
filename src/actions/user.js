@@ -3,12 +3,12 @@ import { SIGNUP,SIGNIN, SIGNOUT, GETUSER } from "../constants/actionTypes";
 import * as api from "../api";
 
 
-export const signOut = (navigate) => async (dispatch) => {
+export const signOut = () => async (dispatch) => {
 
   try {
 
     dispatch({type:SIGNOUT});
-    navigate("/");
+   
   } catch (error) {
     console.log(error);
   }
@@ -69,13 +69,13 @@ export const signIn = (user, navigate) => async (dispatch) => {
   }
 }  
 
-export const getUser = () => async (dispatch) => {
+export const getUser = (setLoading) => async (dispatch) => {
  
   
   try {
-    console.log("a7a");
     const { data } = await api.getUser();
       dispatch({ type: GETUSER, payload: data });
+      setLoading(false);
   } catch (error) {
     console.log(error);
   }
@@ -84,18 +84,10 @@ export const getUser = () => async (dispatch) => {
 
 
 
-
-
-
-
-
-
-export const forgotPassword = (userEmail,navigate) => async (dispatch) => {
+export const forgotPassword = (userEmail,navigate,setSent) => async (dispatch) => {
   try {
-    const { data } = await api.forgotPassword(userEmail);
-    if(data.message === "success"){
-      navigate("/resetpassword");
-    }
+   await api.forgotPassword(userEmail);
+    setSent(true);
   } catch (error) {
     console.log(error);
   }
@@ -103,11 +95,11 @@ export const forgotPassword = (userEmail,navigate) => async (dispatch) => {
 
 export const resetPassword = (userData, navigate) => async (dispatch) => {
   try {
-    const { data } = await api.resetPassword(userData);
+     await api.resetPassword(userData);
    
-    if(data){
-      navigate("/signin");
-    }
+    
+      navigate("/");
+   
   } catch (error) {
     console.log(error);
   }

@@ -12,9 +12,14 @@ import ScrollTop from "./components/ScrollTop";
 import SignUp from "./pages/signup/SignUp";
 import SignIn from "./pages/SignIn";
 import Confirm from "./pages/Confirm";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 import { getUser } from "./actions/user";
+import Loading from "./pages/Loading";
 
 const App = () => {
+ const [loading, setLoading] = useState(true);
+ const [kor, setKor] = useState(false);
  const dispatch = useDispatch();
  const token = useSelector((state)=>state?.token?.token);
  const user = useSelector((state)=>state?.user);
@@ -22,8 +27,11 @@ const App = () => {
 
 
 useEffect(()=>{
+ 
    if(token ){
-    dispatch(getUser());
+    dispatch(getUser(setLoading));
+   }else{
+    setLoading(false);
    }
   
 },[token, dispatch])
@@ -37,14 +45,17 @@ useEffect(()=>{
       <CssBaseline enableColorScheme/>
        
           <Container sx={{minHeight:"100vh"}} maxWidth={false} disableGutters >
-            {active &&<Header />}
+            {active &&<Header setKor={setKor} kor={kor} />}
             <Routes>
-              <Route index element={(user&&active)?<Home />:(user?<Confirm />:<SignIn />)} />
+              <Route index element={(loading)?<Loading />:((user&&active)?<Home kor={kor} />:(user?<Confirm />:<SignIn />))} />
               <Route path="/signup" element={!user&&<SignUp />} />
-              <Route path="/confirm" element={!user&&<Confirm />} />
-              <Route path="/confirm/:token" element={<Confirm />} />
+              <Route path="/confirm" element={!active&&<Confirm />} />
+              <Route path="/confirm/:token" element={!active&&<Confirm />} />
+              <Route path="/forgotpassword" element={!user&&<ForgotPassword />} />
+              <Route path="/resetpassword/:token" element={!user&& <ResetPassword />} />
+              <Route path="/resetpassword" element={!user&& <ResetPassword />} />
             </Routes>
-            {active&& <Footer />}
+            {active&& <Footer kor={kor} />}
             {active &&<ScrollTop />}
             </Container>
           

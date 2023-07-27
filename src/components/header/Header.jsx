@@ -5,7 +5,7 @@ import SocialButtons from "../SocialButtons";
 import clouds from "../../images/Clouds.jpg";
 import ResponsiveAppBar from "./components/ResponsiveAppBar";
 import { useEffect, useState } from "react";
-const Header = () => {
+const Header = ({kor,setKor}) => {
   
   const [showClouds, setShowClouds] = useState(false);
 
@@ -40,7 +40,7 @@ const Header = () => {
         sx={{ display: { xs: "none", lg: "flex" } }}
       >
         <Box sx={{position:"fixed", top:0, left:0}} ml={10}>
-          <LanguageMenu />
+          <LanguageMenu setKor={setKor} />
         </Box>
 
         <Box display={"flex"} width={"100%"} justifyContent={"end"}>
@@ -63,7 +63,7 @@ const Header = () => {
           </Box>
         </Box>
       </Box>
-      <ResponsiveAppBar />
+      <ResponsiveAppBar kor={kor} />
     </Container>
   );
 };

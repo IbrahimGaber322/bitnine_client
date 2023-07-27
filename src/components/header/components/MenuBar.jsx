@@ -1,7 +1,9 @@
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import pages from "./pages";
+import Epages from "./pages";
+import korPages from "./korPages";
 
-const MenuBar = () => {
+const MenuBar = ({kor}) => {
+  const pages = (kor?korPages:Epages);
   return (
     <>
       {pages.map((page) => (

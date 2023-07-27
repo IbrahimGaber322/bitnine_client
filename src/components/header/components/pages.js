@@ -1,4 +1,4 @@
-const pages = [
+const Epages = [
   {
     title: "PRODUCTS",
     dropDown: [
@@ -32,4 +32,4 @@ const pages = [
   },
 ];
 
-export default pages;
+export default Epages;

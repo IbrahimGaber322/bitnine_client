@@ -1,9 +1,10 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
-import pages from "../header/components/pages";
+import Epages from "../header/components/pages";
+import korPages from "../header/components/korPages";
 import SocialButtons from "../SocialButtons";
 
-const Footer=()=>{
-
+const Footer=({kor})=>{
+    const pages = (kor?korPages:Epages);
     return(
        <Container disableGutters maxWidth={false} sx={{ p:3}}>
        <Box maxWidth={"1034px"} mx={"auto"}>

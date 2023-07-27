@@ -13,8 +13,11 @@ import BitnineLogo from "../../../images/b_logo.png";
 import MenuAccordion from "./MenuAccordion";
 import LanguageMenu from "./LanguageMenu";
 import MenuBar from "./MenuBar";
+import { useDispatch } from "react-redux";
+import { signOut } from "../../../actions/user";
 
-function ResponsiveAppBar() {
+function ResponsiveAppBar({kor}) {
+  const dispatch = useDispatch();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -25,9 +28,13 @@ function ResponsiveAppBar() {
     setAnchorElNav(null);
   };
 
+  const handleSignOut = () => {
+    dispatch(signOut());
+  };
+
   return (
     <AppBar color="transparent" elevation={0} position="static">
-      <Container maxWidth={false}  >
+      <Container maxWidth={false}>
         <Toolbar disableGutters>
           <Box flexGrow={1} ml={2}>
             <Box
@@ -80,7 +87,7 @@ function ResponsiveAppBar() {
                 display: { xs: "block", lg: "none" },
               }}
             >
-              <MenuAccordion handleCloseNavMenu={handleCloseNavMenu} />
+              <MenuAccordion kor={kor} handleCloseNavMenu={handleCloseNavMenu} />
               <Button
                 size="small"
                 className="slide"
@@ -89,11 +96,21 @@ function ResponsiveAppBar() {
               >
                 TRY FREE
               </Button>
+              <Button
+                size="small"
+                className="slide"
+                color="secondary"
+                sx={{ my: "auto", height: "fit-content", ml: 1 }}
+                variant="contained"
+                onClick={handleSignOut}
+              >
+                SIGN OUT
+              </Button>
             </Menu>
           </Box>
 
           <Box sx={{ flexGrow: -1, display: { xs: "none", lg: "flex" } }}>
-            <MenuBar />
+            <MenuBar kor={kor} />
 
             <Button
               size="small"
@@ -102,6 +119,16 @@ function ResponsiveAppBar() {
               variant="contained"
             >
               TRY FREE
+            </Button>
+            <Button
+              size="small"
+              className="slide"
+              color="secondary"
+              sx={{ my: "auto", height: "fit-content", ml: 1 }}
+              variant="contained"
+              onClick={handleSignOut}
+            >
+              SIGN OUT
             </Button>
           </Box>
         </Toolbar>

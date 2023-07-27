@@ -6,7 +6,7 @@ import Fade from "@mui/material/Fade";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { Box, IconButton } from "@mui/material";
 
-export default function LanguageMenu() {
+export default function LanguageMenu({setKor}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -38,8 +38,8 @@ export default function LanguageMenu() {
         onClose={handleClose}
         TransitionComponent={Fade}
       >
-        <MenuItem onClick={handleClose}>English</MenuItem>
-        <MenuItem onClick={handleClose}>한국어</MenuItem>
+        <MenuItem onClick={()=>(handleClose(),setKor(false))}>English</MenuItem>
+        <MenuItem onClick={()=>(handleClose(),setKor(true))}>한국어</MenuItem>
       </Menu>
     </Box>
   );
