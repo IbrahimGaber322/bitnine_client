@@ -11,8 +11,12 @@ export default function LanguageMenu({ setKor }) {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = (bool) => {
+  const handleChange = (bool) => {
     setKor(bool);
+    setAnchorEl(null);
+  };
+
+  const handleClose = () => {
     setAnchorEl(null);
   };
 
@@ -38,8 +42,18 @@ export default function LanguageMenu({ setKor }) {
         onClose={handleClose}
         TransitionComponent={Fade}
       >
-        <MenuItem onTouchStart={() => handleClose(false)} onClick={() => handleClose(false)}>English</MenuItem>
-        <MenuItem onTouchStart={() => handleClose(true)} onClick={() => handleClose(true)}>한국어</MenuItem>
+        <MenuItem
+          onTouchEnd={() => handleChange(false)}
+          onClick={() => handleChange(false)}
+        >
+          English
+        </MenuItem>
+        <MenuItem
+          onTouchEnd={() => handleChange(true)}
+          onClick={() => handleChange(true)}
+        >
+          한국어
+        </MenuItem>
       </Menu>
     </Box>
   );
