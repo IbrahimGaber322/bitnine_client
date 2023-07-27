@@ -43,13 +43,13 @@ export default function LanguageMenu({ setKor }) {
         TransitionComponent={Fade}
       >
         <MenuItem
-          onTouchEnd={() => handleChange(false)}
+          sx={{cursor:"pointer"}}
           onClick={() => handleChange(false)}
         >
           English
         </MenuItem>
         <MenuItem
-          onTouchEnd={() => handleChange(true)}
+          sx={{cursor:"pointer"}}
           onClick={() => handleChange(true)}
         >
           한국어
