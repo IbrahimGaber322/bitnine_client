@@ -64,9 +64,9 @@ const App = () => {
             />
             <Route
               path="/resetpassword/:token"
-              element={!user && <ResetPassword />}
+              element={<ResetPassword />}
             />
-            <Route path="/resetpassword" element={!user && <ResetPassword />} />
+            <Route path="/resetpassword" element={<ResetPassword />} />
           </Routes>
           {active && <Footer kor={kor} />}
           {active && <ScrollTop />}
