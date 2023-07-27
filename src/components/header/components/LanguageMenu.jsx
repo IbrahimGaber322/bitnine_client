@@ -5,14 +5,14 @@ import Fade from "@mui/material/Fade";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { Box, IconButton } from "@mui/material";
 
-/* eslint-disable */
 export default function LanguageMenu({ setKor }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
+  const handleClose = (bool) => {
+    setKor(bool);
     setAnchorEl(null);
   };
 
@@ -38,12 +38,8 @@ export default function LanguageMenu({ setKor }) {
         onClose={handleClose}
         TransitionComponent={Fade}
       >
-        <MenuItem onClick={() => (handleClose(), setKor(false))}>
-          English
-        </MenuItem>
-        <MenuItem onClick={() => (handleClose(), setKor(true))}>
-          한국어
-        </MenuItem>
+        <MenuItem onClick={() => handleClose(false)}>English</MenuItem>
+        <MenuItem onClick={() => handleClose(true)}>한국어</MenuItem>
       </Menu>
     </Box>
   );
