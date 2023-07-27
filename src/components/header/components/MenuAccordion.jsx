@@ -1,4 +1,4 @@
-import { Box, IconButton, Menu, Typography } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import {
   Accordion,
   AccordionBody,
@@ -9,14 +9,14 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Epages from "./pages";
 import korPages from "./korPages";
 
-const MenuAccordion = ({ handleCloseNavMenu,kor }) => {
- const pages = (kor?korPages:Epages);
+const MenuAccordion = ({ handleCloseNavMenu, kor }) => {
+  const pages = kor ? korPages : Epages;
 
   return (
     <>
       {pages.map((page) => {
         return (
-          <Accordion>
+          <Accordion key={page.title}>
             <AccordionItem>
               <AccordionHeader as="div">
                 <IconButton
@@ -38,7 +38,7 @@ const MenuAccordion = ({ handleCloseNavMenu,kor }) => {
               <AccordionBody>
                 {page?.dropDown?.map((dropDown) => {
                   return (
-                    <AccordionItem>
+                    <AccordionItem key={dropDown.title}>
                       <AccordionHeader
                         as="div"
                         className="nav-item-white-container"
@@ -65,7 +65,10 @@ const MenuAccordion = ({ handleCloseNavMenu,kor }) => {
                           <AccordionHeader as="div">
                             {dropDown?.subDropDown?.map((subDropDown) => {
                               return (
-                                <Box className="nav-item-white-container">
+                                <Box
+                                  key={subDropDown}
+                                  className="nav-item-white-container"
+                                >
                                   <IconButton
                                     className="nav-item-white"
                                     sx={{

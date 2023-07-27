@@ -1,6 +1,12 @@
 import { Box, Grid, Paper } from "@mui/material";
-import Paragraph from "../../Paragraph";
+import { useEffect, useRef } from "react";
 const Feature = ({ children, sx, image }) => {
+  const ref = useRef(null);
+  var width;
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    width = ref.current.offsetWidth;
+  }, [ref.current]);
   return (
     <Grid
       item
@@ -19,10 +25,12 @@ const Feature = ({ children, sx, image }) => {
           component={"img"}
           src={image}
         />
-        <Box className="overlay">
-          <Paragraph sx={{textAlign:"left"}}>
+        <Box ref={ref} className="overlay">
+          <Box
+            sx={{ fontSize: width / 12, textAlign: "left", color: "#666666" }}
+          >
             {children}
-          </Paragraph>
+          </Box>
         </Box>
       </Paper>
     </Grid>

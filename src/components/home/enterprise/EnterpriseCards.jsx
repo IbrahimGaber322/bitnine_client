@@ -21,9 +21,10 @@ const EnterpriseCards = ({kor}) => {
     {cards.map((card)=>{
       return(
         <EnterpriseCard
+        key={card.front}
         front={card.front}
         back={
-          <ul>
+          <ul style={{textAlign:"left"}}>
             <li>{card.back[0]}</li>
             <li>{card.back[1]}</li>
           </ul>

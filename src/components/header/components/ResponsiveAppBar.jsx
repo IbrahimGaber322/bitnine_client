@@ -3,12 +3,10 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
 import BitnineLogo from "../../../images/b_logo.png";
 import MenuAccordion from "./MenuAccordion";
 import LanguageMenu from "./LanguageMenu";
@@ -16,7 +14,7 @@ import MenuBar from "./MenuBar";
 import { useDispatch } from "react-redux";
 import { signOut } from "../../../actions/user";
 
-function ResponsiveAppBar({kor}) {
+function ResponsiveAppBar({ kor }) {
   const dispatch = useDispatch();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
@@ -87,7 +85,10 @@ function ResponsiveAppBar({kor}) {
                 display: { xs: "block", lg: "none" },
               }}
             >
-              <MenuAccordion kor={kor} handleCloseNavMenu={handleCloseNavMenu} />
+              <MenuAccordion
+                kor={kor}
+                handleCloseNavMenu={handleCloseNavMenu}
+              />
               <Button
                 size="small"
                 className="slide"
