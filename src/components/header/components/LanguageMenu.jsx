@@ -44,13 +44,13 @@ export default function LanguageMenu({ setKor }) {
       >
         <MenuItem
           sx={{cursor:"pointer"}}
-          onClick={() => handleChange(false)}
+          onPointerEnter={() => handleChange(false)}
         >
           English
         </MenuItem>
         <MenuItem
           sx={{cursor:"pointer"}}
-          onClick={() => handleChange(true)}
+          onPointerEnter={() => handleChange(true)}
         >
           한국어
         </MenuItem>
