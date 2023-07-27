@@ -94,7 +94,7 @@ const Header = ({ kor, setKor }) => {
           </Box>
         </Box>
       </Box>
-      <ResponsiveAppBar kor={kor} />
+      <ResponsiveAppBar kor={kor} setKor={setKor} />
     </Container>
   );
 };

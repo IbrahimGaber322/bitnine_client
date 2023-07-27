@@ -14,7 +14,7 @@ import MenuBar from "./MenuBar";
 import { useDispatch } from "react-redux";
 import { signOut } from "../../../actions/user";
 
-function ResponsiveAppBar({ kor }) {
+function ResponsiveAppBar({ kor, setKor }) {
   const dispatch = useDispatch();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
@@ -46,7 +46,7 @@ function ResponsiveAppBar({ kor }) {
           </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", lg: "none" } }}>
-            <LanguageMenu />
+            <LanguageMenu setKor={setKor} />
           </Box>
 
           <Box sx={{ flexGrow: -1, display: { xs: "flex", lg: "none" } }}>

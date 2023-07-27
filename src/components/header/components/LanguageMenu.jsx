@@ -42,18 +42,8 @@ export default function LanguageMenu({ setKor }) {
         onClose={handleClose}
         TransitionComponent={Fade}
       >
-        <MenuItem
-          sx={{cursor:"pointer"}}
-          onPointerEnter={() => handleChange(false)}
-        >
-          English
-        </MenuItem>
-        <MenuItem
-          sx={{cursor:"pointer"}}
-          onPointerEnter={() => handleChange(true)}
-        >
-          한국어
-        </MenuItem>
+        <MenuItem onClick={() => handleChange(false)}>English</MenuItem>
+        <MenuItem onClick={() => handleChange(true)}>한국어</MenuItem>
       </Menu>
     </Box>
   );
