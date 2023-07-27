@@ -6,9 +6,12 @@ import {
   AccordionItem,
 } from "react-headless-accordion";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import pages from "./pages";
+import Epages from "./pages";
+import korPages from "./korPages";
 
-const MenuAccordion = ({ handleCloseNavMenu }) => {
+const MenuAccordion = ({ handleCloseNavMenu,kor }) => {
+ const pages = (kor?korPages:Epages);
+
   return (
     <>
       {pages.map((page) => {
@@ -22,6 +25,9 @@ const MenuAccordion = ({ handleCloseNavMenu }) => {
                     width: "100%",
                     display: "flex",
                     justifyContent: "space-between",
+                  }}
+                  onClick={() => {
+                    !page.dropDown && handleCloseNavMenu();
                   }}
                 >
                   {page?.title}
@@ -45,6 +51,9 @@ const MenuAccordion = ({ handleCloseNavMenu }) => {
                             justifyContent: "space-between",
                             pl: 2,
                           }}
+                          onClick={() => {
+                            !dropDown.subDropDown && handleCloseNavMenu();
+                          }}
                         >
                           {dropDown.title}
                           {dropDown.subDropDown && <KeyboardArrowDownIcon />}
@@ -65,6 +74,7 @@ const MenuAccordion = ({ handleCloseNavMenu }) => {
                                       justifyContent: "space-between",
                                       pl: 4,
                                     }}
+                                    onClick={handleCloseNavMenu}
                                   >
                                     {subDropDown}
                                   </IconButton>
