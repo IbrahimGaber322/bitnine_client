@@ -50,14 +50,10 @@ export const sendConfirm = (token, setSent) => async (dispatch) => {
 export const signIn = (user, navigate) => async (dispatch) => {
   try {
     const { data } = await api.signIn(user);
-    if (data) {
-      dispatch({ type: SIGNIN, payload: data });
 
-      navigate("/");
-    } else {
-      dispatch({ type: SIGNOUT });
-      navigate("/");
-    }
+    dispatch({ type: SIGNIN, payload: data });
+
+    navigate("/");
   } catch (error) {
     console.log(error);
   }
@@ -66,7 +62,12 @@ export const signIn = (user, navigate) => async (dispatch) => {
 export const getUser = (setLoading) => async (dispatch) => {
   try {
     const { data } = await api.getUser();
-    dispatch({ type: GETUSER, payload: data });
+    if (data) {
+      dispatch({ type: GETUSER, payload: data });
+    } else {
+      dispatch({ type: SIGNOUT });
+    }
+
     setLoading(false);
   } catch (error) {
     console.log(error);
