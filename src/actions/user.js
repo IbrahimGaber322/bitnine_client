@@ -13,7 +13,6 @@ export const signOut = () => async (dispatch) => {
 export const signUp = (user, navigate) => async (dispatch) => {
   try {
     const { data } = await api.signUp(user);
-    console.log(data);
     if (data.token) {
       dispatch({ type: SIGNUP, payload: data });
 
@@ -38,7 +37,6 @@ export const confirm = (token, navigate) => async (dispatch) => {
 };
 
 export const sendConfirm = (token, setSent) => async (dispatch) => {
-  console.log(token);
   try {
     await api.sendConfirm(token);
     setSent(true);

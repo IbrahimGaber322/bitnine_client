@@ -22,10 +22,10 @@ import {
   FormHelperText,
   Paper,
 } from "@mui/material";
-import LinkM from "@mui/material/Link"
+import LinkM from "@mui/material/Link";
 import { Link } from "react-router-dom";
 import TermsModal from "./TermsModal";
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
 function Copyright(props) {
   return (
@@ -46,14 +46,14 @@ function Copyright(props) {
 }
 
 const initialState = {
-  firstName: "",
-  lastName: "",
+  firstname: "",
+  lastname: "",
   email: "",
   password: "",
   confirmPassword: "",
 };
 const initialErrorState = {
-  firstName: false,
+  firstname: false,
   lastName: false,
   email: false,
   password: false,
@@ -66,7 +66,7 @@ const SignUp = () => {
   const [formData, setFormData] = useState(initialState);
   const [error, setError] = useState(initialErrorState);
   const [checked, setChecked] = useState(false);
-  
+
   const [showPassword, setShowPassword] = React.useState(false);
   const handleCheckBox = (event) => {
     setChecked(event.target.checked);
@@ -75,7 +75,7 @@ const SignUp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
-      formData.firstName.length === 0 ||
+      formData.firstname.length === 0 ||
       formData.lastName.length === 0 ||
       !formData.email.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i) ||
       !formData.password.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/i) ||
@@ -83,7 +83,7 @@ const SignUp = () => {
       !checked
     ) {
       setError({
-        firstName: formData.firstName.length === 0,
+        firstname: formData.firstname.length === 0,
         lastName: formData.lastName.length === 0,
         email: !formData.email.match(
           /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
@@ -98,8 +98,7 @@ const SignUp = () => {
       dispatch(signUp(formData, navigate));
     }
   };
- 
-  
+
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleMouseDownPassword = (event) => {
@@ -110,15 +109,21 @@ const SignUp = () => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-      name: `${formData.firstName} ${formData.lastName}`,
+      name: `${formData.firstname} ${formData.lastName}`,
     });
     setError({ ...error, [e.target.name]: false });
   };
- 
 
   return (
     <Box
-      sx={{ width: "100%",height:"100vh", display: "flex",flexDirection:"column", justifyContent: "center", alignItems:"center" }}
+      sx={{
+        width: "100%",
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
       component="form"
       noValidate
       onSubmit={handleSubmit}
@@ -134,9 +139,9 @@ const SignUp = () => {
       >
         <Grid container>
           <Grid display="flex" justifyContent="center" item xs={12}>
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
+            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+              <LockOutlinedIcon />
+            </Avatar>
           </Grid>
           <Grid pt={2} item xs={12}>
             <Typography textAlign="center" variant="h4">
@@ -152,16 +157,16 @@ const SignUp = () => {
               item
             >
               <TextField
-                name="firstName"
+                name="firstname"
                 variant="outlined"
                 label="First Name"
                 helperText={
-                  error.firstName ? "Please enter your first name." : false
+                  error.firstname ? "Please enter your first name." : false
                 }
-                value={formData.firstName}
+                value={formData.firstname}
                 required
                 inputProps={{ maxLength: 20 }}
-                error={error.firstName}
+                error={error.firstname}
                 autoFocus
                 fullWidth
                 onChange={handleChange}
@@ -192,7 +197,7 @@ const SignUp = () => {
           </Grid>
           <TextField
             name="name"
-            value={`${formData.firstName} ${formData.lastName}`}
+            value={`${formData.firstname} ${formData.lastName}`}
             sx={{ display: "none" }}
           />
           <Grid pt={2} item xs={12}>
@@ -270,18 +275,14 @@ const SignUp = () => {
             <FormControl required error={error.check}>
               <FormControlLabel
                 control={
-                  <Checkbox
-                    
-                    onChange={handleCheckBox}
-                    checked={checked}
-                  />
+                  <Checkbox onChange={handleCheckBox} checked={checked} />
                 }
                 label={
                   <Box display={"flex"}>
                     <Typography display={"flex"} alignItems={"center"}>
                       Accept
                     </Typography>
-                    <TermsModal >terms</TermsModal>
+                    <TermsModal>terms</TermsModal>
                   </Box>
                 }
               />
@@ -304,12 +305,7 @@ const SignUp = () => {
           </Grid>
 
           <Grid pt={2} display="flex" justifyContent="end" item xs={12}>
-            <Typography
-              fontSize={13}
-              color="primary"
-              component={Link}
-              to="/"
-            >
+            <Typography fontSize={13} color="primary" component={Link} to="/">
               Already have an account? Sign in
             </Typography>
           </Grid>
