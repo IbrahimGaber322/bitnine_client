@@ -36,7 +36,7 @@ return(token?
     :
     <Box height={600} display={"flex"} flexWrap={"wrap"} justifyContent={"center"} flexDirection="column" alignItems={"center"}>
     <Paper elevation={0} sx={{display:"flex",flexDirection:"column", justifyContent:"center"}}>
-    <Typography textAlign="center">Welcome back {user?.firstName+" " +user?.lastName},</Typography>
+    <Typography textAlign="center">Welcome back {user?.firstname+" " +user?.lastname},</Typography>
     {sent&&<Typography textAlign="center">Confirmation sent email successfully.</Typography>}
     <Typography >Please check the conformation email in your mailbox.</Typography>
      {!sent&&<Button onClick={handleCLick2}>Resend Activation Email</Button>}

@@ -49,7 +49,7 @@ const ResetPassword = () => {
   };
 
   const handleChange = (e) => {
-      setFormData({...formData, [e.target.name]:e.target.value, name:`${formData.firstName} ${formData.lastName}`});
+      setFormData({...formData, [e.target.name]:e.target.value, name:`${formData.firstname} ${formData.lastname}`});
       setError({...error, [e.target.name]:false})
       
   };

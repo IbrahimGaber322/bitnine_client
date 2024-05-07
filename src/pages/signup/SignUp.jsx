@@ -54,7 +54,7 @@ const initialState = {
 };
 const initialErrorState = {
   firstname: false,
-  lastName: false,
+  lastname: false,
   email: false,
   password: false,
   confirmPassword: false,
@@ -76,7 +76,7 @@ const SignUp = () => {
     e.preventDefault();
     if (
       formData.firstname.length === 0 ||
-      formData.lastName.length === 0 ||
+      formData.lastname.length === 0 ||
       !formData.email.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i) ||
       !formData.password.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/i) ||
       formData.confirmPassword !== formData.password ||
@@ -84,7 +84,7 @@ const SignUp = () => {
     ) {
       setError({
         firstname: formData.firstname.length === 0,
-        lastName: formData.lastName.length === 0,
+        lastname: formData.lastname.length === 0,
         email: !formData.email.match(
           /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
         ),
@@ -109,7 +109,7 @@ const SignUp = () => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-      name: `${formData.firstname} ${formData.lastName}`,
+      name: `${formData.firstname} ${formData.lastname}`,
     });
     setError({ ...error, [e.target.name]: false });
   };
@@ -180,15 +180,15 @@ const SignUp = () => {
               item
             >
               <TextField
-                name="lastName"
-                value={formData.lastName}
+                name="lastname"
+                value={formData.lastname}
                 variant="outlined"
                 inputProps={{ maxLength: 20 }}
                 label="Last Name"
                 helperText={
-                  error.lastName ? "Please enter your last name." : false
+                  error.lastname ? "Please enter your last name." : false
                 }
-                error={error.lastName}
+                error={error.lastname}
                 required
                 fullWidth
                 onChange={handleChange}
@@ -197,7 +197,7 @@ const SignUp = () => {
           </Grid>
           <TextField
             name="name"
-            value={`${formData.firstname} ${formData.lastName}`}
+            value={`${formData.firstname} ${formData.lastname}`}
             sx={{ display: "none" }}
           />
           <Grid pt={2} item xs={12}>
